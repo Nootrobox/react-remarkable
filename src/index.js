@@ -4,6 +4,12 @@ import React from 'react';
 import Markdown from 'remarkable';
 
 var Remarkable = React.createClass({
+  propTypes: {
+    container: React.PropTypes.string,
+    options: React.PropTypes.object,
+    source: React.PropTypes.string,
+    children: React.PropTypes.array
+  },
 
   getDefaultProps() {
     return {

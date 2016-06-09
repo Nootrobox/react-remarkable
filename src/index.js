@@ -28,6 +28,18 @@ var Remarkable = React.createClass({
     );
   },
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.options !== this.props.options) {
+      return true;
+    }
+    else if (this.props.source) {
+      return this.props.source !== nextProps.source;
+    }
+    else {
+      return true;
+    }
+  },
+
   componentWillUpdate(nextProps, nextState) {
     if (nextProps.options !== this.props.options) {
       this.md = new Markdown(nextProps.options);
